@@ -51,10 +51,6 @@ graph LR
     A --> B[✍️ Scriptwriter<br/>YouTube Style]
     B --> C[🌐 Translator<br/>Hinglish Localization]
     C --> END((END))
-
-    style A fill:#e1f5fe
-    style B fill:#fff3e0
-    style C fill:#e8f5e9
 ```
 
 **Key concepts:**
@@ -82,10 +78,6 @@ graph TD
     T --> END((END))
     C --> END
     S --> END
-
-    style T fill:#ffcdd2
-    style C fill:#fff9c4
-    style S fill:#c8e6c9
 ```
 
 **Key concepts:**
@@ -111,12 +103,6 @@ graph TD
     FR --> RESP
     GN --> RESP
     RESP --> END((END))
-
-    style CL fill:#ede7f6
-    style AR fill:#e3f2fd
-    style FR fill:#fff3e0
-    style GN fill:#f3e5f5
-    style RESP fill:#e8f5e9
 ```
 
 **Key concepts:**
@@ -144,11 +130,6 @@ graph TD
 
     R -->|REJECTED<br/>attempt < 3| W
     R -->|APPROVED<br/>or attempt ≥ 3| END((END))
-
-    style W fill:#bbdefb
-    style T fill:#ffe0b2
-    style E fill:#e8f5e9
-    style R fill:#f8bbd0
 ```
 
 **Key concepts:**
@@ -176,11 +157,6 @@ graph TD
 
     H -->|"approved"| END((END))
     H -->|feedback text| W
-
-    style H fill:#ffeb3b,stroke:#f57f17,stroke-width:3px
-    style W fill:#bbdefb
-    style T fill:#ffe0b2
-    style E fill:#e8f5e9
 ```
 
 **Key concepts:**
@@ -201,13 +177,6 @@ graph TD
     B --> D[4. Conditional<br/>Router + RAG]
     D --> E[5. Agentic Loop<br/>Tool Use + AI Review]
     E --> F[6. Human-in-the-Loop<br/>interrupt + Command]
-
-    style A fill:#e3f2fd
-    style B fill:#e8f5e9
-    style C fill:#fff3e0
-    style D fill:#f3e5f5
-    style E fill:#fce4ec
-    style F fill:#ffeb3b
 ```
 
 Each project builds on the previous one — state → edges → routing → loops → human interaction.
