@@ -4,10 +4,10 @@ load_dotenv()
 from typing import TypedDict
 
 class pipelineState(TypedDict):
-    raw_input = str 
-    edited_text = str
-    scripted_text = str
-    final_output = str
+    raw_input: str
+    edited_text: str
+    scripted_text: str
+    final_output: str
 
 from langchain_mistralai import ChatMistralAI
 
@@ -59,3 +59,31 @@ def translator_node(state : pipelineState) -> dict:
     response = llm.invoke(prompt)
 
     return {"final_output" : response.content.strip()}
+
+# now nodes and states are ready and now it is time to create the graph
+# and for creating the graph you have to connect these nodes and for that you have to use edges
+# Edges are very important to create workflows
+
+from langgraph.graph import StateGraph , START , END
+
+graph = StateGraph(pipelineState)
+
+graph.add_node("editor" , editor_node)
+graph.add_node("scriptwriter" , scriptwriter_node)
+graph.add_node("translator" , translator_node)
+
+# Add edges ( sequential - one after other )
+
+graph.add_edge(START , "editor")
+graph.add_edge("editor" , "scriptwriter")
+graph.add_edge("scriptwriter" , "translator")
+graph.add_edge("translator" , END)
+
+# Compile the graph
+
+app = graph.compile()
+
+result = app.invoke({"raw_input" : "Spain won the world cup of fifa 2026"})
+
+print("\n\nYour script is ready\n\n")
+print(result["final_output"])
