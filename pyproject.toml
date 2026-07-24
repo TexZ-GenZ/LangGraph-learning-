@@ -15,4 +15,5 @@ dependencies = [
     "sentence-transformers",
     "pypdf",
     "tiktoken",
+    "langchain_tavily"
 ]
